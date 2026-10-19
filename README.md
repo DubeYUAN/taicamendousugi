@@ -1,11 +1,101 @@
-<div align="center">
+# LinguaDeck - 智慧單字卡與間隔複習系統 📚✨
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+一個簡潔、優雅、無語言限制的智慧單字卡與出題複習系統。支援自訂單字儲存、真人語音自動發音、SuperMemo SM-2 間隔複習演算法、多模式出題測驗，以及專屬錯題本衝刺訓練。
 
-  <h1>Built with AI Studio</h2>
+---
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## 🌟 主要功能亮點
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+1. **自訂單字卡（不限語言）**
+   - 支援輸入任何語言（英語、日語、韓語、西班牙語、法語、德語、義大利語、中文等）。
+   - 欄位包含：單字/片語、中文釋義、音標/假名拼音、詞性、例句、例句翻譯、記憶備忘與自訂標籤。
+   - 內建智慧語言自動辨識功能。
 
-</div>
+2. **真人自動發音與語音控制 (Web Speech API)**
+   - 支援原生瀏覽器多國語音即時朗讀。
+   - 提供 1.0x 正常速度與 0.75x 慢速發音切換，方便辨識發音細節。
+   - 支援測驗時「切換題目自動朗讀」。
+
+3. **SM-2 科學間隔複習系統 (Spaced Repetition System)**
+   - 根據艾賓浩斯遺忘曲線，動態計算最佳複習間隔（1天、4天、7天、21天...）。
+   - 掌握度分為：新單字 (New) → 學習中 (Learning) → 複習中 (Review) → 已精通 (Mastered)。
+   - 即時計算「今日到期待複習」清單。
+
+4. **四大出題測驗模式**
+   - **四選一選擇題**：從卡組中智慧產生干擾選項，快速強化認知。
+   - **拼寫鍵入測驗**：看釋義或聽發音輸入完整單字，支援漸進提示首字。
+   - **翻卡間隔複習 (Anki 模式)**：翻轉卡片自評（重來、困難、良好、簡單），即時調整 SM-2 週期。
+   - **純聽力挑戰**：先隱藏文字朗讀發音，透過聽感選出正確釋義。
+
+5. **專屬錯題本 (Mistake Notebook) & 錯題專練**
+   - 測驗時任何答錯的題目會自動歸檔至錯題本，記錄答錯次數與歷史。
+   - 提供一鍵 **「🚀 專練這些錯題」** 功能，專注攻克弱點。
+   - 支援將熟記的單字移出錯題本或重設標記。
+
+6. **相容 GitHub 與本機端執行**
+   - 完全採用瀏覽器本機儲存（LocalStorage），無需伺服器或資料庫配置即可開箱即用。
+   - 提供完整 JSON 備份匯出與 CSV 試算表匯出，方便上傳 GitHub 倉庫進行版本控制。
+   - 支援 CSV / TSV 批次快速匯入。
+
+---
+
+## 🚀 本機端安裝與啟動方式 (Local Development)
+
+本專案使用 **Vite + React 19 + TypeScript + Tailwind CSS** 建置。
+
+### 1. 複製專案
+```bash
+git clone <你的 GitHub 倉庫網址>
+cd <專案目錄>
+```
+
+### 2. 安裝相依套件
+```bash
+npm install
+```
+
+### 3. 啟動開發伺服器
+```bash
+npm run dev
+```
+啟動後在瀏覽器開啟 `http://localhost:3000` (或終端機顯示的網址) 即可使用！
+
+### 4. 建置生產環境檔案 (Production Build)
+```bash
+npm run build
+```
+打包後的靜態檔案會輸出至 `dist/` 資料夾。
+
+---
+
+## 🌐 部署至 GitHub Pages 步驟
+
+你可以非常輕鬆地將此應用發布為免費的 GitHub Pages 網站：
+
+1. 在 `package.json` 中加上你的倉庫 base 路徑（若部署在用戶名/倉庫名）：
+   在 `vite.config.ts` 加入：
+   ```ts
+   export default defineConfig({
+     base: './', // 確保使用相對路徑
+     // ...其他設定
+   });
+   ```
+2. 執行建置：
+   ```bash
+   npm run build
+   ```
+3. 使用 GitHub Actions 或 `gh-pages` 套件將 `dist` 資料夾發布至 `gh-pages` 分支。
+
+---
+
+## ⌨️ 測驗鍵盤快捷鍵指南
+
+為了提高學習效率，測驗時支援全鍵盤操作：
+- `1` / `2` / `3` / `4`：選擇對應選項，或在翻卡模式選擇評級（重來/困難/良好/簡單）。
+- `Space (空白鍵)`：朗讀發音，或翻轉卡片。
+- `Enter (回車鍵)`：檢查拼寫答案，或前往下一題。
+
+---
+
+## 📄 License
+MIT License

@@ -1,0 +1,6 @@
+{
+  "name": "LinguaDeck - 智慧單字卡與間隔複習系統",
+  "description": "跨語言智慧單字記憶庫，支援自訂單字卡、智慧發音、間隔複習（SRS）、多模式出題與專屬錯題本衝刺訓練。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
